@@ -8,14 +8,14 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2024-09-30.acacia",
 })
 
-// const transporter = nodemailer.createTransport({
-//     host: process.env.EMAIL_HOST,
-//     port: parseInt(process.env.EMAIL_PORT!),
-//     auth: {
-//         user: process.env.EMAIL_USER,
-//         pass: process.env.EMAIL_PASS,
-//     },
-// })
+const transporter = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: parseInt(process.env.EMAIL_PORT!),
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+})
 
 export async function POST(req: Request) {
     const buf = await req.text()
@@ -52,18 +52,18 @@ export async function POST(req: Request) {
             // })
 
             // Send email
-            // await transporter.sendMail({
-            //     from: process.env.EMAIL_FROM,
-            //     to: customerEmail,
-            //     subject: "Your Workout Plan Ebook",
-            //     text: "Thank you for your purchase! Here is your ebook.",
-            //     attachments: [
-            //         {
-            //             filename: "workout-plan-ebook.pdf",
-            //             path: "/path/to/your/ebook.pdf", // Update this with the actual path on your Vercel server
-            //         },
-            //     ],
-            // })
+            await transporter.sendMail({
+                from: process.env.EMAIL_FROM,
+                to: customerEmail,
+                subject: "Your Workout Plan Ebook",
+                text: "Thank you for your purchase! Here is your ebook.",
+                // attachments: [
+                //     {
+                //         filename: "workout-plan-ebook.pdf",
+                //         path: "/path/to/your/ebook.pdf",
+                //     },
+                // ],
+            })
         }
     }
 
