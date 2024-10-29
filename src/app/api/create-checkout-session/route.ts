@@ -11,15 +11,7 @@ export async function POST() {
             payment_method_types: ["card"],
             line_items: [
                 {
-                    price_data: {
-                        currency: "usd",
-                        product_data: {
-                            name: "Workout Plan Ebook",
-                            description:
-                                "Includes Beginner, Intermediate, and Expert plans",
-                        },
-                        unit_amount: 2999,
-                    },
+                    price: "price_1QFJ1h00YeJKjPgjGhYNahEI",
                     quantity: 1,
                 },
             ],
