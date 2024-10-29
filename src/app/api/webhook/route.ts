@@ -36,7 +36,9 @@ export async function POST(req: Request) {
         )
     }
 
+    console.log("Received event", event.type)
     if (event.type === "checkout.session.completed") {
+        // console.log("Received event", event)
         const session = event.data.object as Stripe.Checkout.Session
         const customerEmail = session.customer_details?.email
 
