@@ -2,6 +2,7 @@ import { NextResponse } from "next/server"
 import Stripe from "stripe"
 // import { PrismaClient } from "@prisma/client"
 import nodemailer from "nodemailer"
+import path from "path"
 
 // const prisma = new PrismaClient()
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -58,12 +59,16 @@ export async function POST(req: Request) {
                     to: customerEmail,
                     subject: "Your Workout Plan Ebook",
                     text: "Thank you for your purchase! Here is your ebook.",
-                    // attachments: [
-                    //     {
-                    //         filename: "workout-plan-ebook.pdf",
-                    //         path: "/path/to/your/ebook.pdf",
-                    //     },
-                    // ],
+                    attachments: [
+                        {
+                            filename: "workout-plan-ebook.pdf",
+                            path: path.join(
+                                process.cwd(),
+                                "assets",
+                                "workout-plan-ebook.pdf"
+                            ),
+                        },
+                    ],
                 })
             } catch (err) {
                 console.log(err)
