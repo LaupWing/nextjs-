@@ -11,7 +11,7 @@ export async function POST() {
             payment_method_types: ["card"],
             line_items: [
                 {
-                    price: "price_1QFaqs00YeJKjPgj3axGA46o",
+                    price: "price_1QFaum00YeJKjPgjNeyjIkTw",
                     quantity: 1,
                 },
             ],
