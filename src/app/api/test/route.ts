@@ -24,12 +24,12 @@ export async function GET(req: Request) {
             to: "laupwing@gmail.com",
             subject: "Your Workout Plan Ebook",
             text: "Thank you for your purchase! Here is your ebook.",
-            // attachments: [
-            //     {
-            //         filename: "workout-plan-ebook.pdf",
-            //         path: attachmentPath,
-            //     },
-            // ],
+            attachments: [
+                {
+                    filename: "workout-plan-ebook.pdf",
+                    path: attachmentPath,
+                },
+            ],
         })
         await transporter.sendMail({
             from: process.env.EMAIL_FROM,
