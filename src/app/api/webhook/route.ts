@@ -57,8 +57,8 @@ export async function POST(req: Request) {
                 await transporter.sendMail({
                     from: process.env.EMAIL_FROM,
                     to: customerEmail,
-                    subject: "Your Workout Plan Ebook",
-                    text: "Thank you for your purchase! Here is your ebook.",
+                    subject: "Body Craft System Ebook",
+                    text: "Thank you for your purchase! Here is your ebook. Reply to this email to book a call with me!.",
                     attachments: [
                         {
                             filename: "workout-plan-ebook.pdf",
