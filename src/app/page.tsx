@@ -66,10 +66,14 @@ export default function SalesFunnel() {
                         </h2>
                         <div className="flex flex-col text-neutral-200 gap-2 text-lg md:text-xl lg:text-2xl">
                             <p className="text-neutral-200">
-                                The best workout plans are tailored to your
-                                body, goals, and lifestyle. Create a custom plan
-                                just for you, so you can achieve results without
-                                the guesswork.
+                                The best workout plans are custom to your body,
+                                goals, and lifestyle. Create a custom plan with
+                                the{" "}
+                                <strong className="text-violet-500">
+                                    Body Crafting System
+                                </strong>
+                                , so you can achieve results without the
+                                guesswork.
                             </p>
                             <p className="">
                                 After working out for{" "}
@@ -79,7 +83,10 @@ export default function SalesFunnel() {
                                 I have tested and experimented with every
                                 exercise and the amount of sets and reps.
                             </p>
-                            <p>Don't waste years like I did</p>
+                            <p>
+                                Don't waste years like I did and shortcut your
+                                fitness progress.
+                            </p>
                         </div>
                         <a href="#offer">
                             <button className="inline-flex mt-4 h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:w-auto w-full">
