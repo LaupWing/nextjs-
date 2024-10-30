@@ -482,7 +482,7 @@ export default function SalesFunnel() {
                                 <HoverBorderGradient
                                     containerClassName="rounded-full w-full mt-4"
                                     as="button"
-                                    className="bg-black w-full text-center flex text-black dark:text-white items-center space-x-2"
+                                    className="bg-black w-full text-center flex text-white items-center space-x-2"
                                 >
                                     <a
                                         className="w-full text-center"
