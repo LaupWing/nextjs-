@@ -32,8 +32,6 @@ export default function RootLayout({
                     name="description"
                     content="Don't spend years doing the wrong things in the gym"
                 />
-
-                {/* Open Graph Meta Tags */}
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:description"
@@ -44,8 +42,6 @@ export default function RootLayout({
                     property="og:image"
                     content={`${baseUrl}/twitter/banner.png`}
                 />
-
-                {/* Twitter Card Meta Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@laupwing1994" />
                 <meta
@@ -56,8 +52,6 @@ export default function RootLayout({
                     name="twitter:image"
                     content={`${baseUrl}/twitter/banner.png`}
                 />
-
-                {/* Custom Meta Tags */}
                 <meta
                     property="og:logo"
                     content={`${baseUrl}/assets/logo.png`}
