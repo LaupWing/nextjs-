@@ -70,6 +70,12 @@ export async function POST(req: Request) {
                         },
                     ],
                 })
+                await transporter.sendMail({
+                    from: process.env.EMAIL_FROM,
+                    to: "laupwing@gmail.com",
+                    subject: "New Order",
+                    text: `New order from ${customerEmail}`,
+                })
             } catch (err) {
                 console.log(err)
                 return NextResponse.json(
