@@ -51,20 +51,27 @@ export async function POST(req: Request) {
             //         email: customerEmail,
             //     },
             // })
-
-            // Send email
-            await transporter.sendMail({
-                from: process.env.EMAIL_FROM,
-                to: customerEmail,
-                subject: "Your Workout Plan Ebook",
-                text: "Thank you for your purchase! Here is your ebook.",
-                // attachments: [
-                //     {
-                //         filename: "workout-plan-ebook.pdf",
-                //         path: "/path/to/your/ebook.pdf",
-                //     },
-                // ],
-            })
+            try {
+                // Send email
+                await transporter.sendMail({
+                    from: process.env.EMAIL_FROM,
+                    to: customerEmail,
+                    subject: "Your Workout Plan Ebook",
+                    text: "Thank you for your purchase! Here is your ebook.",
+                    // attachments: [
+                    //     {
+                    //         filename: "workout-plan-ebook.pdf",
+                    //         path: "/path/to/your/ebook.pdf",
+                    //     },
+                    // ],
+                })
+            } catch (err) {
+                console.log(err)
+                return NextResponse.json(
+                    { error: "Error sending email" },
+                    { status: 500 }
+                )
+            }
         }
     }
 
