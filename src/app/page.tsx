@@ -9,8 +9,15 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
+import { Meteors } from "@/components/ui/meteors"
 import { loadStripe } from "@stripe/stripe-js"
-import { IconDiamondFilled, IconDiamondsFilled } from "@tabler/icons-react"
+import {
+    IconDiamondFilled,
+    IconDiamondsFilled,
+    IconRosetteDiscountCheckFilled,
+    IconSquareRoundedCheckFilled,
+} from "@tabler/icons-react"
 import { CheckCircle } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -401,7 +408,7 @@ export default function SalesFunnel() {
                             </div>
                         </div>
                     </div>
-                    {/* <section
+                    <section
                         id="offer"
                         className="py-8 px-6 flex items-center justify-center"
                     >
@@ -488,7 +495,7 @@ export default function SalesFunnel() {
                                 <Meteors number={20} />
                             </div>
                         </div>
-                    </section> */}
+                    </section>
                     <footer className="my-8 text-neutral-100 mx-auto">
                         Copyright Coach Loc
                     </footer>
