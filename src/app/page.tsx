@@ -361,7 +361,7 @@ export default function SalesFunnel() {
                                 </p>
                             </div>
                             <div className="flex flex-col">
-                                <h3 className="text-xl flex items-center gap-1">
+                                <h3 className="text-xl text-yellow-400 flex items-center gap-1">
                                     <IconDiamondFilled />
                                     Bonus: 1-on-1 Call with Coach Loc
                                 </h3>
