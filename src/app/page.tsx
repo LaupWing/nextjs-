@@ -10,6 +10,7 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { loadStripe } from "@stripe/stripe-js"
+import { IconDiamondFilled, IconDiamondsFilled } from "@tabler/icons-react"
 import { CheckCircle } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -41,7 +42,7 @@ export default function SalesFunnel() {
         }
     }
     return (
-        <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
+        <div className="min-h-screen">
             <BackgroundBeamsWithCollision>
                 <div className="text-left flex flex-col items-start">
                     <div className="md:max-w-[60%] flex flex-col items-start gap-4">
@@ -88,93 +89,7 @@ export default function SalesFunnel() {
                     </div>
                 </div>
             </BackgroundBeamsWithCollision>
-            <div className="container mx-auto px-4 py-16">
-                <h1 className="text-4xl font-bold text-center mb-8">
-                    Create Your Perfect Workout Plan
-                </h1>
-                <p className="text-xl text-center mb-12">
-                    Unlock the secrets to crafting personalized workout routines
-                    with our comprehensive ebook!
-                </p>
-
-                <div className="grid md:grid-cols-3 gap-8 mb-12">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Beginner Plan</CardTitle>
-                            <CardDescription>
-                                Perfect for those just starting their fitness
-                                journey
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <ul className="space-y-2">
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    3 workouts per week
-                                </li>
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    Focus on form and technique
-                                </li>
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    Gradual progression
-                                </li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Intermediate Plan</CardTitle>
-                            <CardDescription>
-                                For those ready to take their workouts to the
-                                next level
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <ul className="space-y-2">
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    4-5 workouts per week
-                                </li>
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    Increased intensity and volume
-                                </li>
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    Advanced exercise variations
-                                </li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Expert Plan</CardTitle>
-                            <CardDescription>
-                                Designed for seasoned athletes looking for a
-                                challenge
-                            </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <ul className="space-y-2">
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    5-6 workouts per week
-                                </li>
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    High-intensity training
-                                </li>
-                                <li className="flex items-center">
-                                    <CheckCircle className="mr-2 h-4 w-4 text-green-500" />{" "}
-                                    Periodization and recovery strategies
-                                </li>
-                            </ul>
-                        </CardContent>
-                    </Card>
-                </div>
-
+            {/* <div className="container mx-auto px-4 py-16">
                 <Card className="max-w-md mx-auto">
                     <CardHeader>
                         <CardTitle>
@@ -200,6 +115,362 @@ export default function SalesFunnel() {
                         </Button>
                     </CardFooter>
                 </Card>
+            </div> */}
+            <div className="bg-neutral-800 flex flex-col">
+                <div className="max-w-3xl text-left mx-auto py-8 px-6 sm:px-6 lg:py-12 lg:px-8">
+                    <h2 className="text-3xl font-extrabold tracking-tight text-neutral-50 sm:text-4xl">
+                        Common complaints and their root...
+                        <span className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
+                            Which one is you?
+                        </span>
+                    </h2>
+                    <ul className="text-neutral-100 text-base md:text-lg my-8 flex-col flex gap-4">
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                Not making any progress in the gym{" "}
+                                <strong className="text-white">
+                                    (Doing the wrong exercises)
+                                </strong>
+                            </p>
+                        </li>
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                Feeling lost in the gym{" "}
+                                <strong className="text-white">
+                                    (Not having a plan)
+                                </strong>
+                            </p>
+                        </li>
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                To much information online about fitness.{" "}
+                                <strong className="text-white">
+                                    (Internet is full of misinformation)
+                                </strong>
+                            </p>
+                        </li>
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                Feeling unmotivated.{" "}
+                                <strong className="text-white">
+                                    (Not having a clear goal)
+                                </strong>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div className="max-w-3xl text-left mx-auto py-8 px-6 sm:px-6 lg:py-12 lg:px-8">
+                    <h2 className="text-3xl font-extrabold tracking-tight text-neutral-50 sm:text-4xl">
+                        Common traps and their root...
+                        <span className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
+                            Where are you trapped?
+                        </span>
+                    </h2>
+                    <ul className="text-neutral-100 text-base md:text-lg my-8 flex-col flex gap-4">
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                Picking the wrong exercises{" "}
+                                <strong className="text-white">
+                                    (Not having the fitness knowledge)
+                                </strong>
+                            </p>
+                        </li>
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                Picking the wrong workout plan{" "}
+                                <strong className="text-white">
+                                    (Workout plan that is to general and not
+                                    suited for you)
+                                </strong>
+                            </p>
+                        </li>
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                Blaming the lack of progress on the plan.{" "}
+                                <strong className="text-white">
+                                    (You just got the wrong plan)
+                                </strong>
+                            </p>
+                        </li>
+                        <li className="flex items-center">
+                            <IconDiamondsFilled
+                                className="mr-2 flex-shrink-0"
+                                size={20}
+                            />
+                            <p>
+                                Doing the workout that is either to hard or to
+                                easy.{" "}
+                                <strong className="text-white">
+                                    (Sticking with one workout plan, and often
+                                    the wrong one)
+                                </strong>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <a className="mx-auto" href="#offer">
+                    <button className="inline-flex mt-4 h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:w-auto w-full">
+                        Get My Plan
+                    </button>
+                </a>
+                <div className="flex flex-col bg-gradient-to-t from-neutral-950 to-neutral-800">
+                    <div className="max-w-3xl text-left mx-auto py-12 px-6 sm:px-6 lg:py-16 lg:px-8 text-white flex flex-col gap-4">
+                        <p>
+                            For 14 years, I’ve been on a rollercoaster of
+                            fitness. I’ve seen the highs and lows of it all—once
+                            too skinny, later too heavy, and now, in the best
+                            shape of my life.{" "}
+                        </p>
+                        <p>Here is my story.</p>
+                        <img
+                            className="rounded-lg"
+                            src="/assets/banner.png"
+                            alt=""
+                        />
+                        <p>
+                            My journey wasn’t straightforward, though. I spent
+                            years experimenting with every kind of workout
+                            routine you can imagine—weightlifting splits,
+                            bodyweight routines, calisthenics, yoga, even some
+                            unconventional stuff just to see what clicked.
+                        </p>
+                        <p>I made all the mistakes.</p>
+                        <p>
+                            I picked exercises just because they were trendy,
+                            not because they were what my body needed.
+                        </p>
+                        <p>
+                            I’d follow general workout plans that weren’t suited
+                            to me, convincing myself I was on the right track.
+                        </p>
+                        <p>
+                            I’d struggle through routines that were either way
+                            too advanced or, worse, too easy—thinking that just
+                            sticking to a plan was enough.
+                        </p>
+                        <p>
+                            When the progress didn’t show, I’d blame the plan,
+                            not realizing the problem was that I had the wrong
+                            one all along.
+                        </p>
+                        <p>
+                            Now, when I walk into the gym, I can’t help but
+                            notice others falling into the same traps.
+                        </p>
+                        <p>
+                            I see people grinding away on exercises they don’t
+                            understand, their form a mess, clearly not getting
+                            what they’re after.
+                        </p>
+                        <p>
+                            Some have been doing this for years, sticking to the
+                            wrong plan, wondering why the results never come.
+                        </p>
+                        <p>It’s tough to watch because I’ve been there.</p>
+                        <p>
+                            But after all my trial and error, I know that
+                            understanding your body and picking the right
+                            routine is everything.
+                        </p>
+                        <p>
+                            It's not just about doing the work—it's about doing
+                            the right work.
+                        </p>
+                    </div>
+                    <a className="mx-auto" href="#offer">
+                        <button className="inline-flex mt-4 h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:w-auto w-full">
+                            Get My Plan
+                        </button>
+                    </a>
+                    <div className="max-w-3xl text-center mx-auto py-12 px-6 sm:px-6 lg:py-16 lg:px-8 text-white flex flex-col gap-4">
+                        <div className="flex flex-col">
+                            <p className="uppercase text-white md:text-lg font-bold tracking-wider">
+                                How does it work?
+                            </p>
+                            <h2 className=" text-3xl md:text-4xl bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 relative z-50 mb-2">
+                                Tailored workout plan
+                            </h2>
+                        </div>
+                        <div className=" text-left flex flex-col gap-8">
+                            <div className="flex flex-col">
+                                <h3 className="text-xl flex items-center gap-1">
+                                    <IconDiamondFilled />
+                                    Personalized Assessment
+                                </h3>
+                                <p className="mt-2">
+                                    I’ll start by gathering key information:
+                                    your weight, height, age, available
+                                    equipment, how often you can work out, and
+                                    your current fitness level (beginner,
+                                    intermediate, or advanced). You’ll also let
+                                    me know what your specific goals are—whether
+                                    it’s building muscle, losing fat, or
+                                    improving overall fitness.
+                                </p>
+                            </div>
+                            <div className="flex flex-col">
+                                <h3 className="text-xl flex items-center gap-1">
+                                    <IconDiamondFilled />
+                                    Tailored Workout Plan
+                                </h3>
+                                <p className="mt-2">
+                                    Based on your unique profile, I’ll create a
+                                    workout plan that’s suited just for you.
+                                    Whether you’re a beginner, intermediate, or
+                                    advanced, the plan will match your current
+                                    abilities and progressively push you toward
+                                    your goals. Plus, you get up to three
+                                    revisions to ensure it fits perfectly.
+                                </p>
+                            </div>
+                            <div className="flex flex-col">
+                                <h3 className="text-xl flex items-center gap-1">
+                                    <IconDiamondFilled />
+                                    Bonus: 1-on-1 Call with Coach Loc
+                                </h3>
+                                <p className="mt-2">
+                                    As a bonus, we’ll have a personal call where
+                                    I’ll explain the essentials of fitness,
+                                    break down your workout plan, and answer any
+                                    questions you have. During this call, we’ll
+                                    also discuss your current diet so I can
+                                    create a custom meal plan that aligns with
+                                    your fitness goals and lifestyle.
+                                </p>
+                            </div>
+                            <div className="flex flex-col">
+                                <h3 className="text-xl flex items-center gap-1">
+                                    <IconDiamondFilled />
+                                    Bonus: Custom Diet Plan
+                                </h3>
+                                <p className="mt-2">
+                                    Along with your workout, I’ll provide a
+                                    tailored diet plan that fits your body’s
+                                    needs, helping you maximize your results.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <section
+                        id="offer"
+                        className="py-8 px-6 flex items-center justify-center"
+                    >
+                        <div className=" w-full relative max-w-md">
+                            <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+                            <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-6 py-10 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+                                <div className="text-center font-bold">
+                                    <h1 className=" text-3xl md:text-4xl bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 relative z-50 mb-2">
+                                        Tailored workout plan
+                                    </h1>
+                                    <div className="my-6">
+                                        <p className="text-center w-full text-5xl text-white">
+                                            $97
+                                        </p>
+                                        <p className="uppercase text-gray-400 text-xs max-w-[50%] mt-2 mx-auto">
+                                            This is limited time offer. The
+                                            price will increase 27 sep.
+                                        </p>
+                                    </div>
+                                    <p className="text-base text-slate-200 mb-4 relative z-50">
+                                        Have a tailored workout plan just for
+                                        you. Suited to your body, goals, and
+                                        lifestyle for maximum results without
+                                        wasting years learning about fitness.
+                                    </p>
+                                </div>
+                                <ul className="my-4 text-white flex flex-col items-start gap-4">
+                                    <li className="flex items-center">
+                                        <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
+                                        <p>Every plan/document is tailored</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
+                                        <p>3 Revisions for the plans</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
+                                        <p>Beginner workout plan</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
+                                        <p>Intermediate workout plan</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
+                                        <p>Advanced workout plan</p>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
+                                        <p>
+                                            Document on how to make your own
+                                            plan
+                                        </p>
+                                    </li>
+                                    <li className="flex items-center relative">
+                                        <IconRosetteDiscountCheckFilled className="text-yellow-400 mr-2 flex-shrink-0" />
+                                        <p>1 on 1 Call with Coach Loc</p>
+                                        <span className="absolute text-xs right-0 top-0 bg-yellow-400 text-slate-900 font-bold rounded px-2 py-0.5 transform rotate-12 translate-x-1/2 -translate-y-3/4">
+                                            Bonus
+                                        </span>
+                                    </li>
+                                    <li className="flex items-center relative">
+                                        <IconRosetteDiscountCheckFilled className="text-yellow-400 mr-2 flex-shrink-0" />
+                                        <p>Custom Diet Plan</p>
+                                        <span className="absolute text-xs right-0 top-0 bg-yellow-400 text-slate-900 font-bold rounded px-2 py-0.5 transform rotate-12 translate-x-1/2 -translate-y-3/4">
+                                            Bonus
+                                        </span>
+                                    </li>
+                                </ul>
+
+                                <HoverBorderGradient
+                                    containerClassName="rounded-full w-full mt-4"
+                                    as="button"
+                                    className="bg-black w-full text-center flex text-black dark:text-white items-center space-x-2"
+                                >
+                                    <a
+                                        className="w-full text-center"
+                                        href="https://3895253043082.gumroad.com/l/rbzni"
+                                    >
+                                        Let's go!
+                                    </a>
+                                </HoverBorderGradient>
+
+                                <Meteors number={20} />
+                            </div>
+                        </div>
+                    </section> */}
+                    <footer className="my-8 text-neutral-100 mx-auto">
+                        Copyright Coach Loc
+                    </footer>
+                </div>
             </div>
         </div>
     )
