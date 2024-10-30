@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function POST() {
     try {
         const session = await stripe.checkout.sessions.create({
-            payment_method_types: ["card"],
+            payment_method_types: ["card", "ideal", "paypal"],
             line_items: [
                 {
                     price: "price_1QFaum00YeJKjPgjNeyjIkTw",
