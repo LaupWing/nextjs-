@@ -15,9 +15,10 @@ export async function GET(req: Request) {
     try {
         const attachmentPath = path.join(
             process.cwd(),
-            "/assets/workout-plan-ebook.pdf"
+            "assets",
+            "workout-plan-ebook.pdf"
         )
-        console.log(attachmentPath)
+        console.log("Attachment Path:", attachmentPath)
         console.log({
             from: process.env.EMAIL_FROM,
             to: "laupwing@gmail.com",
