@@ -15,8 +15,7 @@ export async function GET(req: Request) {
     try {
         const attachmentPath = path.join(
             process.cwd(),
-            "assets",
-            "workout-plan-ebook.pdf"
+            "/assets/workout-plan-ebook.pdf"
         )
         console.log(attachmentPath)
         await transporter.sendMail({
