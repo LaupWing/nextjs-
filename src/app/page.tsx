@@ -319,39 +319,47 @@ export default function SalesFunnel() {
                                 How does it work?
                             </p>
                             <h2 className=" text-3xl md:text-4xl bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 relative z-50 mb-2">
-                                Tailored workout plan
+                                Body Crafting System
                             </h2>
                         </div>
                         <div className=" text-left flex flex-col gap-8">
                             <div className="flex flex-col">
                                 <h3 className="text-xl flex items-center gap-1">
                                     <IconDiamondFilled />
-                                    Personalized Assessment
+                                    Basics
                                 </h3>
                                 <p className="mt-2">
-                                    I’ll start by gathering key information:
-                                    your weight, height, age, available
-                                    equipment, how often you can work out, and
-                                    your current fitness level (beginner,
-                                    intermediate, or advanced). You’ll also let
-                                    me know what your specific goals are—whether
-                                    it’s building muscle, losing fat, or
-                                    improving overall fitness.
+                                    I’ll go over the basics of fitness, breaking
+                                    down the key fundamentals of working out.
+                                    There's a lot of misinformation on the
+                                    internet, so I'll make sure you have the
+                                    right information.
                                 </p>
                             </div>
                             <div className="flex flex-col">
                                 <h3 className="text-xl flex items-center gap-1">
                                     <IconDiamondFilled />
-                                    Tailored Workout Plan
+                                    Crafting Your Workout Plan
                                 </h3>
                                 <p className="mt-2">
-                                    Based on your unique profile, I’ll create a
-                                    workout plan that’s suited just for you.
-                                    Whether you’re a beginner, intermediate, or
-                                    advanced, the plan will match your current
-                                    abilities and progressively push you toward
-                                    your goals. Plus, you get up to three
-                                    revisions to ensure it fits perfectly.
+                                    Based on your unique profile—like how many
+                                    days you can work out and how much time you
+                                    can spend—you’ll create a custom workout
+                                    plan that fits your body’s needs, helping
+                                    you maximize your results without the
+                                    guesswork.
+                                </p>
+                            </div>
+                            <div className="flex flex-col">
+                                <h3 className="text-xl flex items-center gap-1">
+                                    <IconDiamondFilled />
+                                    Premade Plans
+                                </h3>
+                                <p className="mt-2">
+                                    You’ll also get pre-made workout plans for
+                                    different levels—Beginner, Intermediate, and
+                                    Advanced—so you can start right away or
+                                    build your own custom plan.
                                 </p>
                             </div>
                             <div className="flex flex-col">
@@ -360,24 +368,23 @@ export default function SalesFunnel() {
                                     Bonus: 1-on-1 Call with Coach Loc
                                 </h3>
                                 <p className="mt-2">
-                                    As a bonus, we’ll have a personal call where
-                                    I’ll explain the essentials of fitness,
-                                    break down your workout plan, and answer any
-                                    questions you have. During this call, we’ll
-                                    also discuss your current diet so I can
-                                    create a custom meal plan that aligns with
-                                    your fitness goals and lifestyle.
+                                    As a bonus, you can schedule a call with me,
+                                    where I’ll explain the essentials of
+                                    fitness, walk you through your workout plan,
+                                    and answer any questions you may have.
                                 </p>
                             </div>
                             <div className="flex flex-col">
-                                <h3 className="text-xl flex items-center gap-1">
+                                <h3 className="text-xl flex text-emerald-400 items-center gap-1">
                                     <IconDiamondFilled />
                                     Bonus: Custom Diet Plan
                                 </h3>
                                 <p className="mt-2">
-                                    Along with your workout, I’ll provide a
-                                    tailored diet plan that fits your body’s
-                                    needs, helping you maximize your results.
+                                    Along with your workout, you’ll also get to
+                                    create a custom diet plan that fits your
+                                    body’s needs. Additionally, I’ll share the
+                                    key fundamentals of dieting to help you
+                                    reach your goals.
                                 </p>
                             </div>
                         </div>
