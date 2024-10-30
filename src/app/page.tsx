@@ -66,23 +66,19 @@ export default function SalesFunnel() {
                         <div className="flex flex-col text-neutral-200 gap-2 text-lg md:text-xl lg:text-2xl">
                             <p className="text-neutral-200">
                                 The best workout plans are tailored to your
-                                body, goals, and lifestyle. I’ll create a custom
-                                plan just for you, so you can achieve results
-                                without the guesswork.
+                                body, goals, and lifestyle. Create a custom plan
+                                just for you, so you can achieve results without
+                                the guesswork.
                             </p>
                             <p className="">
-                                With my{" "}
+                                After working out for{" "}
                                 <strong className="text-violet-500">
-                                    14 years
+                                    14 years.
                                 </strong>{" "}
-                                of experience, I will build your workout plan
-                                based on your goals, fitness level, and
-                                equipment availability.
+                                I have tested and experimented with every
+                                exercise and the amount of sets and reps.
                             </p>
-                            <p>
-                                The workout plan is sustainable and helps you
-                                progress much faster
-                            </p>
+                            <p>Don't waste years like I did</p>
                         </div>
                         <a href="#offer">
                             <button className="inline-flex mt-4 h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:w-auto w-full">
