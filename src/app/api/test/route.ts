@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server"
-import Stripe from "stripe"
-// import { PrismaClient } from "@prisma/client"
 import nodemailer from "nodemailer"
+import path from "path"
 
 const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
@@ -14,6 +13,12 @@ const transporter = nodemailer.createTransport({
 
 export async function GET(req: Request) {
     try {
+        const attachmentPath = path.join(
+            process.cwd(),
+            "assets",
+            "workout-plan-ebook.pdf"
+        )
+
         await transporter.sendMail({
             from: process.env.EMAIL_FROM,
             to: "laupwing@gmail.com",
@@ -22,7 +27,7 @@ export async function GET(req: Request) {
             attachments: [
                 {
                     filename: "workout-plan-ebook.pdf",
-                    path: "./assets/workout-plan-ebook.pdf",
+                    path: "../assets/workout-plan-ebook.pdf",
                 },
             ],
         })
