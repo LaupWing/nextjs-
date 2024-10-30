@@ -415,11 +415,11 @@ export default function SalesFunnel() {
                                         </p>
                                         <p className="uppercase text-gray-400 text-xs max-w-[50%] mt-2 mx-auto">
                                             This is limited time offer. The
-                                            price will increase 27 sep.
+                                            price will increase 27 nov.
                                         </p>
                                     </div>
                                     <p className="text-base text-slate-200 mb-4 relative z-50">
-                                        Have a tailored workout plan just for
+                                        Create a custom workout plan just for
                                         you. Suited to your body, goals, and
                                         lifestyle for maximum results without
                                         wasting years learning about fitness.
@@ -428,11 +428,11 @@ export default function SalesFunnel() {
                                 <ul className="my-4 text-white flex flex-col items-start gap-4">
                                     <li className="flex items-center">
                                         <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
-                                        <p>Every plan/document is tailored</p>
+                                        <p>Custom Workout Plan Guide</p>
                                     </li>
                                     <li className="flex items-center">
                                         <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
-                                        <p>3 Revisions for the plans</p>
+                                        <p>The Essential Info About Fitness</p>
                                     </li>
                                     <li className="flex items-center">
                                         <IconSquareRoundedCheckFilled className="text-green-400 mr-2 flex-shrink-0" />
@@ -462,7 +462,14 @@ export default function SalesFunnel() {
                                     </li>
                                     <li className="flex items-center relative">
                                         <IconRosetteDiscountCheckFilled className="text-yellow-400 mr-2 flex-shrink-0" />
-                                        <p>Custom Diet Plan</p>
+                                        <p>Custom Diet Plan Guide</p>
+                                        <span className="absolute text-xs right-0 top-0 bg-yellow-400 text-slate-900 font-bold rounded px-2 py-0.5 transform rotate-12 translate-x-1/2 -translate-y-3/4">
+                                            Bonus
+                                        </span>
+                                    </li>
+                                    <li className="flex items-center relative">
+                                        <IconRosetteDiscountCheckFilled className="text-yellow-400 mr-2 flex-shrink-0" />
+                                        <p>2 Meal Preps Recipes</p>
                                         <span className="absolute text-xs right-0 top-0 bg-yellow-400 text-slate-900 font-bold rounded px-2 py-0.5 transform rotate-12 translate-x-1/2 -translate-y-3/4">
                                             Bonus
                                         </span>
