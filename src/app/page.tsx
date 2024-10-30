@@ -1,14 +1,5 @@
 "use client"
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
-import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 import { Meteors } from "@/components/ui/meteors"
 import { loadStripe } from "@stripe/stripe-js"
@@ -18,7 +9,6 @@ import {
     IconRosetteDiscountCheckFilled,
     IconSquareRoundedCheckFilled,
 } from "@tabler/icons-react"
-import { CheckCircle } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 const stripePromise = loadStripe(
@@ -482,14 +472,10 @@ export default function SalesFunnel() {
                                 <HoverBorderGradient
                                     containerClassName="rounded-full w-full mt-4"
                                     as="button"
-                                    className="bg-black w-full text-center flex text-white items-center space-x-2"
+                                    className="bg-black w-full text-center flex text-white items-center justify-center space-x-2"
+                                    onClick={handlePayment}
                                 >
-                                    <a
-                                        className="w-full text-center"
-                                        href="https://3895253043082.gumroad.com/l/rbzni"
-                                    >
-                                        Let's go!
-                                    </a>
+                                    {loading ? "Processing..." : "Buy Now"}
                                 </HoverBorderGradient>
 
                                 <Meteors number={20} />
