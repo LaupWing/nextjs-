@@ -23,19 +23,29 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const baseUrl = process.env.NEXT_PUBLIC_URL
+
     return (
         <html lang="en">
             <head>
+                <meta
+                    name="description"
+                    content="Don't spend years doing the wrong things in the gym"
+                />
+
+                {/* Open Graph Meta Tags */}
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:description"
                     content="Don't spend years doing the wrong things in the gym"
                 />
-                <meta property="og:url" content="{{ url('/') }}/" />
+                <meta property="og:url" content={`${baseUrl}/`} />
                 <meta
                     property="og:image"
-                    content="{{ url('/assets/tailored_plan_banner.png') }}"
+                    content={`${baseUrl}/twitter/banner.png`}
                 />
+
+                {/* Twitter Card Meta Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@laupwing1994" />
                 <meta
@@ -44,12 +54,13 @@ export default function RootLayout({
                 />
                 <meta
                     name="twitter:image"
-                    content="{{ url('/assets/tailored_plan_banner.png') }}"
+                    content={`${baseUrl}/twitter/banner.png`}
                 />
 
+                {/* Custom Meta Tags */}
                 <meta
                     property="og:logo"
-                    content="{{ url('/assets/logo.png') }}"
+                    content={`${baseUrl}/assets/logo.png`}
                 />
             </head>
             <body
