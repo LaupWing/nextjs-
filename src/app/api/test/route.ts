@@ -18,7 +18,7 @@ export async function GET(req: Request) {
             "assets",
             "workout-plan-ebook.pdf"
         )
-
+        console.log(attachmentPath)
         await transporter.sendMail({
             from: process.env.EMAIL_FROM,
             to: "laupwing@gmail.com",
@@ -27,7 +27,7 @@ export async function GET(req: Request) {
             attachments: [
                 {
                     filename: "workout-plan-ebook.pdf",
-                    path: "../assets/workout-plan-ebook.pdf",
+                    path: attachmentPath,
                 },
             ],
         })
