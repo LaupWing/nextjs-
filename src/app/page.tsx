@@ -1,4 +1,5 @@
 "use client"
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -41,6 +42,56 @@ export default function SalesFunnel() {
     }
     return (
         <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
+            <BackgroundBeamsWithCollision>
+                <div className="text-left flex flex-col items-start">
+                    <div className="md:max-w-[60%] flex flex-col items-start gap-4">
+                        <p className="uppercase bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r from-purple-500 to-violet-500  [text-shadow:0_0_rgba(0,0,0,0.1)] md:text-lg font-bold tracking-wider">
+                            for people seeking an optimized plan
+                        </p>
+                        <h2 className="text-3xl relative z-20 md:text-4xl lg:text-6xl font-bold text-left text-white font-sans tracking-tight">
+                            Best Workout Plan Just for You.{" "}
+                            <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+                                <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r md:py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+                                    <span className="">
+                                        Without wasting years.
+                                    </span>
+                                </div>
+                                <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 md:py-4">
+                                    <span className="">
+                                        Without wasting years.
+                                    </span>
+                                </div>
+                            </div>
+                        </h2>
+                        <div className="flex flex-col text-neutral-200 gap-2 text-lg md:text-xl lg:text-2xl">
+                            <p className="text-neutral-200">
+                                The best workout plans are tailored to your
+                                body, goals, and lifestyle. I’ll create a custom
+                                plan just for you, so you can achieve results
+                                without the guesswork.
+                            </p>
+                            <p className="">
+                                With my{" "}
+                                <strong className="text-violet-500">
+                                    14 years
+                                </strong>{" "}
+                                of experience, I will build your workout plan
+                                based on your goals, fitness level, and
+                                equipment availability.
+                            </p>
+                            <p>
+                                The workout plan is sustainable and helps you
+                                progress much faster
+                            </p>
+                        </div>
+                        <a href="#offer">
+                            <button className="inline-flex mt-4 h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:w-auto w-full">
+                                Get Yours Now
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </BackgroundBeamsWithCollision>
             <div className="container mx-auto px-4 py-16">
                 <h1 className="text-4xl font-bold text-center mb-8">
                     Create Your Perfect Workout Plan
