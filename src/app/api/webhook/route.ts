@@ -52,6 +52,12 @@ export async function POST(req: Request) {
             //         email: customerEmail,
             //     },
             // })
+            console.log({
+                from: process.env.EMAIL_FROM,
+                to: customerEmail,
+                subject: "Body Craft System Ebook",
+                text: "Thank you for your purchase! Here is your ebook. Reply to this email to book a call with me!.",
+            })
             try {
                 // Send email
                 await transporter.sendMail({
