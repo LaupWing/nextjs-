@@ -13,18 +13,26 @@ const transporter = nodemailer.createTransport({
 })
 
 export async function GET(req: Request) {
-    await transporter.sendMail({
-        from: process.env.EMAIL_FROM,
-        to: "laupwing@gmail.com",
-        subject: "Your Workout Plan Ebook",
-        text: "Thank you for your purchase! Here is your ebook.",
-        attachments: [
-            {
-                filename: "workout-plan-ebook.pdf",
-                path: "./assets/workout-plan-ebook.pdf",
-            },
-        ],
-    })
+    try {
+        await transporter.sendMail({
+            from: process.env.EMAIL_FROM,
+            to: "laupwing@gmail.com",
+            subject: "Your Workout Plan Ebook",
+            text: "Thank you for your purchase! Here is your ebook.",
+            attachments: [
+                {
+                    filename: "workout-plan-ebook.pdf",
+                    path: "./assets/workout-plan-ebook.pdf",
+                },
+            ],
+        })
+    } catch (err) {
+        console.error(err)
+        return NextResponse.json(
+            { error: "Error sending email" },
+            { status: 500 }
+        )
+    }
 
     return NextResponse.json({ received: true })
 }
