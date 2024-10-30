@@ -250,11 +250,7 @@ export default function SalesFunnel() {
                             shape of my life.{" "}
                         </p>
                         <p>Here is my story.</p>
-                        <img
-                            className="rounded-lg"
-                            src="/assets/banner.png"
-                            alt=""
-                        />
+                        <img className="rounded-lg" src="/banner.png" alt="" />
                         <p>
                             My journey wasn’t straightforward, though. I spent
                             years experimenting with every kind of workout
