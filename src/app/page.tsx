@@ -76,16 +76,17 @@ export default function SalesFunnel() {
                                 guesswork.
                             </p>
                             <p className="">
-                                After working out for{" "}
+                                After{" "}
                                 <strong className="text-violet-500">
-                                    14 years.
+                                    14 years
                                 </strong>{" "}
-                                I have tested and experimented with every
-                                exercise and the amount of sets and reps.
+                                of working out, I have tested and experimented
+                                with every exercise, as well as the ideal number
+                                of sets and reps.
                             </p>
                             <p>
-                                Don't waste years like I did and shortcut your
-                                fitness progress.
+                                Don’t waste years like I did—take the shortcut
+                                to faster fitness progress.
                             </p>
                         </div>
                         <a href="#offer">
@@ -375,7 +376,7 @@ export default function SalesFunnel() {
                                 </p>
                             </div>
                             <div className="flex flex-col">
-                                <h3 className="text-xl flex text-emerald-400 items-center gap-1">
+                                <h3 className="text-xl flex text-yellow-400 items-center gap-1">
                                     <IconDiamondFilled />
                                     Bonus: Custom Diet Plan
                                 </h3>
@@ -385,6 +386,17 @@ export default function SalesFunnel() {
                                     body’s needs. Additionally, I’ll share the
                                     key fundamentals of dieting to help you
                                     reach your goals.
+                                </p>
+                            </div>
+                            <div className="flex flex-col">
+                                <h3 className="text-xl flex text-yellow-400 items-center gap-1">
+                                    <IconDiamondFilled />
+                                    Bonus: Premade plans
+                                </h3>
+                                <p className="mt-2">
+                                    Access two pre-made meal prep plans,
+                                    regularly updated to keep your nutrition on
+                                    track and aligned with your fitness goals.
                                 </p>
                             </div>
                         </div>
