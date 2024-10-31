@@ -409,13 +409,16 @@ export default function SalesFunnel() {
                                     <h1 className=" text-3xl md:text-4xl bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 relative z-50 mb-2">
                                         Tailored workout plan
                                     </h1>
-                                    <div className="my-6">
-                                        <p className="text-center w-full text-5xl text-white">
-                                            $97
+                                    <div className="my-6 flex flex-col">
+                                        <p className="text-center text-5xl text-white items-center flex mx-auto relative justify-center">
+                                            <span className="text-2xl text-gray-400 line-through transform -translate-x-full absolute -left-2">
+                                                18,95
+                                            </span>
+                                            $7,95
                                         </p>
                                         <p className="uppercase text-gray-400 text-xs max-w-[50%] mt-2 mx-auto">
                                             This is limited time offer. The
-                                            price will increase 27 nov.
+                                            price will increase 14 nov.
                                         </p>
                                     </div>
                                     <p className="text-base text-slate-200 mb-4 relative z-50">
