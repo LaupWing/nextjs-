@@ -7,6 +7,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY!)
 
 export async function GET(req: Request) {
     try {
+        console.log("Sending email")
+        console.log(process.env.SENDGRID_API_KEY!)
         const attachmentPath = path.join(
             process.cwd(),
             "assets",
