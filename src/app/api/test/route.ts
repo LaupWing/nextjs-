@@ -47,7 +47,7 @@ export async function GET(req: Request) {
         await sgMail.send(msg)
     } catch (err) {
         // @ts-ignore
-        console.log(err.response)
+        console.log(err.response.body.errors)
         console.error(err)
         return NextResponse.json(
             { error: "Error sending email" },
