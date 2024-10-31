@@ -55,20 +55,7 @@ export async function POST(req: Request) {
                     },
                 ],
             })
-            const msg = {
-                to: "laupwing@gmail.com",
-                from: process.env.EMAIL_FROM!,
-                subject: "Your Workout Plan Ebook",
-                text: "Thank you for your purchase! Here is your ebook.",
-                attachments: [
-                    {
-                        content: base64File,
-                        filename: "workout-plan-ebook.pdf",
-                        type: "application/pdf",
-                        disposition: "attachment",
-                    },
-                ],
-            }
+            
             try {
                 await sgMail.send({
                     from: process.env.EMAIL_FROM!,
