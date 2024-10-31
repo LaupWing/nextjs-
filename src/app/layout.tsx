@@ -42,7 +42,7 @@ export default function RootLayout({
                 <meta property="og:url" content={`${baseUrl}/`} />
                 <meta
                     property="og:image"
-                    content={`${baseUrl}/twitter/banner.png`}
+                    content={`https://saitama.s3.eu-central-1.amazonaws.com/body+system/Untitled+design+(5).png`}
                 />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@laupwing1994" />
@@ -52,11 +52,11 @@ export default function RootLayout({
                 />
                 <meta
                     name="twitter:image"
-                    content={`${baseUrl}/twitter/banner.png`}
+                    content={`https://saitama.s3.eu-central-1.amazonaws.com/body+system/Untitled+design+(5).png`}
                 />
                 <meta
                     property="og:logo"
-                    content={`${baseUrl}/assets/logo.png`}
+                    content={`https://saitama.s3.eu-central-1.amazonaws.com/body+system/Untitled+design+(6).png`}
                 />
             </head>
             <body
