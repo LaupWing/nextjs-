@@ -46,6 +46,8 @@ export async function GET(req: Request) {
         // Send the email using SendGrid
         await sgMail.send(msg)
     } catch (err) {
+        // @ts-ignore
+        console.log(err.response)
         console.error(err)
         return NextResponse.json(
             { error: "Error sending email" },
