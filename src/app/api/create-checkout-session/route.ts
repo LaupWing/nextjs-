@@ -11,7 +11,7 @@ export async function POST() {
             payment_method_types: ["card", "paypal", "klarna"],
             line_items: [
                 {
-                    price: "price_1QFaum00YeJKjPgjNeyjIkTw",
+                    price: "price_1QFIvw00YeJKjPgjCb8R1xlO",
                     quantity: 1,
                 },
             ],
