@@ -40,12 +40,14 @@ export default function RootLayout({
                     content="Don't spend years doing the wrong things in the gym"
                 />
                 <meta property="og:url" content={`${baseUrl}/`} />
+                <meta name="og:title" content="Body Crafting System" />
                 <meta
                     property="og:image"
                     content={`https://saitama.s3.eu-central-1.amazonaws.com/body+system/Untitled+design+(5).png`}
                 />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@laupwing1994" />
+                <meta name="twitter:title" content="Body Crafting System" />
                 <meta
                     name="twitter:description"
                     content="Don't spend years doing the wrong things in the gym"
