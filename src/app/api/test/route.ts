@@ -1,15 +1,9 @@
 import { NextResponse } from "next/server"
-import nodemailer from "nodemailer"
+import sgMail from "@sendgrid/mail"
 import path from "path"
+import fs from "fs/promises"
 
-const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: parseInt(process.env.EMAIL_PORT!),
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
-})
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!)
 
 export async function GET(req: Request) {
     try {
@@ -18,7 +12,8 @@ export async function GET(req: Request) {
             "assets",
             "workout-plan-ebook.pdf"
         )
-        console.log("Attachment Path:", attachmentPath)
+        const fileContent = await fs.readFile(attachmentPath)
+        const base64File = fileContent.toString("base64")
         console.log({
             from: process.env.EMAIL_FROM,
             to: "laupwing@gmail.com",
@@ -31,18 +26,23 @@ export async function GET(req: Request) {
                 },
             ],
         })
-        await transporter.sendMail({
-            from: process.env.EMAIL_FROM,
+        const msg = {
             to: "laupwing@gmail.com",
+            from: process.env.EMAIL_FROM!,
             subject: "Your Workout Plan Ebook",
             text: "Thank you for your purchase! Here is your ebook.",
             attachments: [
                 {
+                    content: base64File,
                     filename: "workout-plan-ebook.pdf",
-                    path: attachmentPath,
+                    type: "application/pdf",
+                    disposition: "attachment",
                 },
             ],
-        })
+        }
+
+        // Send the email using SendGrid
+        await sgMail.send(msg)
     } catch (err) {
         console.error(err)
         return NextResponse.json(
