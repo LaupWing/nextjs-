@@ -55,13 +55,13 @@ export async function POST(req: Request) {
                     },
                 ],
             })
-            
+
             try {
                 await sgMail.send({
                     from: process.env.EMAIL_FROM!,
                     to: customerEmail,
                     subject: "Body Craft System Ebook",
-                    text: "Thank you for your purchase! Here is your ebook. Reply to this email to book a call with me!.",
+                    text: "Thank you for your purchase! Here is your ebook!.",
                     attachments: [
                         {
                             content: base64File,
