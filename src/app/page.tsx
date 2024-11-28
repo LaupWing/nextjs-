@@ -360,7 +360,7 @@ export default function SalesFunnel() {
                                     build your own custom plan.
                                 </p>
                             </div>
-                            <div className="flex flex-col">
+                            {/* <div className="flex flex-col">
                                 <h3 className="text-xl text-yellow-400 flex items-center gap-1">
                                     <IconDiamondFilled />
                                     Bonus: 1-on-1 Call with Coach Loc
@@ -371,7 +371,7 @@ export default function SalesFunnel() {
                                     fitness, walk you through your workout plan,
                                     and answer any questions you may have.
                                 </p>
-                            </div>
+                            </div> */}
                             <div className="flex flex-col">
                                 <h3 className="text-xl flex text-yellow-400 items-center gap-1">
                                     <IconDiamondFilled />
@@ -418,7 +418,7 @@ export default function SalesFunnel() {
                                         </p>
                                         <p className="uppercase text-gray-400 text-xs max-w-[50%] mt-2 mx-auto">
                                             This is limited time offer. The
-                                            price will increase 14 nov.
+                                            price will increase 1 dec.
                                         </p>
                                     </div>
                                     <p className="text-base text-slate-200 mb-4 relative z-50">
