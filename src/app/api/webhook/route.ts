@@ -76,41 +76,80 @@ export async function POST(req: Request) {
                         try {
                             console.log("Sending email")
                             console.log(customerEmail)
-                            await sgMail.send({
-                                from: process.env.EMAIL_FROM!,
-                                to: customerEmail,
-                                subject: "Body Craft System Ebook",
-                                text: "Thank you for your purchase! Here is your ebook!.",
-                                attachments: [
-                                    {
-                                        content: base64File,
-                                        filename: "workout-plan-ebook.pdf",
-                                        type: "application/pdf",
-                                        disposition: "attachment",
-                                    },
-                                ],
-                            })
-                            console.log("Email sent by sendgrid")
-                            await transporter.sendMail({
-                                from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM_ADDRESS}>`,
-                                to: customerEmail,
-                                subject: "Body Craft System Ebook",
-                                text: "Thank you for your purchase! Here is your ebook!.",
-                                attachments: [
-                                    {
-                                        contentType: "application/pdf",
-                                        path: attachmentPath,
-                                        filename: "workout-plan-ebook.pdf",
-                                    },
-                                ],
-                            })
+                            sgMail
+                                .send({
+                                    from: process.env.EMAIL_FROM!,
+                                    to: customerEmail,
+                                    subject: "Body Craft System Ebook",
+                                    text: "Thank you for your purchase! Here is your ebook!.",
+                                    attachments: [
+                                        {
+                                            content: base64File,
+                                            filename: "workout-plan-ebook.pdf",
+                                            type: "application/pdf",
+                                            disposition: "attachment",
+                                        },
+                                    ],
+                                })
+                                .then(() =>
+                                    console.log(
+                                        "SendGrid: Email to customer sent successfully"
+                                    )
+                                )
+                                .catch((err) =>
+                                    console.error(
+                                        "SendGrid: Error sending email to customer",
+                                        err
+                                    )
+                                )
+
+                            transporter
+                                .sendMail({
+                                    from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM_ADDRESS}>`,
+                                    to: customerEmail,
+                                    subject: "Body Craft System Ebook",
+                                    text: "Thank you for your purchase! Here is your ebook!.",
+                                    attachments: [
+                                        {
+                                            contentType: "application/pdf",
+                                            path: attachmentPath,
+                                            filename: "workout-plan-ebook.pdf",
+                                        },
+                                    ],
+                                })
+                                .then(() =>
+                                    console.log(
+                                        "Nodemailer: Email to customer sent successfully"
+                                    )
+                                )
+                                .catch((err) =>
+                                    console.error(
+                                        "Nodemailer: Error sending email to customer",
+                                        err
+                                    )
+                                )
                             console.log("Email sent by nodemailer")
-                            await sgMail.send({
-                                from: process.env.EMAIL_FROM!,
-                                to: "laupwing@gmail.com",
-                                subject: "New Order",
-                                text: `New order from ${customerEmail}`,
-                            })
+
+                            sgMail
+                                .send({
+                                    from: process.env.EMAIL_FROM!,
+                                    to: "laupwing@gmail.com",
+                                    subject: "New Order",
+                                    text: `New order from ${customerEmail}`,
+                                })
+                                .then(() =>
+                                    console.log(
+                                        "SendGrid: New order notification sent successfully"
+                                    )
+                                )
+                                .catch((err) =>
+                                    console.error(
+                                        "SendGrid: Error sending new order notification",
+                                        err
+                                    )
+                                )
+
+                            console.log("All email tasks completed")
                         } catch (err) {
                             console.log(err)
                             return NextResponse.json(
