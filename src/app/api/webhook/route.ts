@@ -16,7 +16,6 @@ export async function POST(req: Request) {
     const buf = await req.text()
     const sig = req.headers.get("stripe-signature")!
     let event: Stripe.Event
-    console.log("heh")
 
     const transporter = nodemailer.createTransport({
         host: "smtp.office365.com",
@@ -56,11 +55,11 @@ export async function POST(req: Request) {
             const lineItems = await stripe.checkout.sessions.listLineItems(
                 session.id
             )
-            console.log(lineItems)
             lineItems.data.forEach(async (item) => {
                 if (customerEmail) {
                     const priceId = item?.price?.id
                     console.log(priceId)
+                    // price_1QSNER00YeJKjPgjWJLH810O
                     if (priceId === process.env.STRIPE_PRICE_ID) {
                         console.log({
                             from: process.env.EMAIL_FROM,
