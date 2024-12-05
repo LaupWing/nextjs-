@@ -77,13 +77,13 @@ export async function POST(req: Request) {
                             await transporter.sendMail({
                                 from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM_ADDRESS}>`,
                                 to: customerEmail,
-                                subject: "Test email",
-                                text: "This is a test email text",
+                                subject: "Body Craft System Ebook",
+                                text: "Thank you for your purchase! Here is your ebook!.",
                                 attachments: [
                                     {
-                                        content: base64File,
-                                        filename: "workout-plan-ebook.pdf",
                                         contentType: "application/pdf",
+                                        path: attachmentPath,
+                                        filename: "workout-plan-ebook.pdf",
                                     },
                                 ],
                             })
