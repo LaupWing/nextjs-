@@ -62,6 +62,7 @@ export async function POST(req: Request) {
                             ],
                         })
                         try {
+                            console.log("Sending email")
                             await sgMail.send({
                                 from: process.env.EMAIL_FROM!,
                                 to: customerEmail,
