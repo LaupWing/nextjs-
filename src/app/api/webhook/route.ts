@@ -40,46 +40,58 @@ export async function POST(req: Request) {
             )
             const fileContent = await fs.readFile(attachmentPath)
             const base64File = fileContent.toString("base64")
-            console.log({
-                from: process.env.EMAIL_FROM,
-                to: "laupwing@gmail.com",
-                subject: "Your Workout Plan Ebook",
-                text: "Thank you for your purchase! Here is your ebook.",
-                attachments: [
-                    {
-                        filename: "workout-plan-ebook.pdf",
-                        path: attachmentPath,
-                    },
-                ],
+            const lineItems = await stripe.checkout.sessions.listLineItems(
+                session.id
+            )
+
+            lineItems.data.forEach(async (item) => {
+                if (customerEmail) {
+                    const priceId = item?.price?.id
+
+                    if (priceId === process.env.STRIPE_PRICE_ID) {
+                        console.log({
+                            from: process.env.EMAIL_FROM,
+                            to: "laupwing@gmail.com",
+                            subject: "Your Workout Plan Ebook",
+                            text: "Thank you for your purchase! Here is your ebook.",
+                            attachments: [
+                                {
+                                    filename: "workout-plan-ebook.pdf",
+                                    path: attachmentPath,
+                                },
+                            ],
+                        })
+                        try {
+                            await sgMail.send({
+                                from: process.env.EMAIL_FROM!,
+                                to: customerEmail,
+                                subject: "Body Craft System Ebook",
+                                text: "Thank you for your purchase! Here is your ebook!.",
+                                attachments: [
+                                    {
+                                        content: base64File,
+                                        filename: "workout-plan-ebook.pdf",
+                                        type: "application/pdf",
+                                        disposition: "attachment",
+                                    },
+                                ],
+                            })
+                            await sgMail.send({
+                                from: process.env.EMAIL_FROM!,
+                                to: "laupwing@gmail.com",
+                                subject: "New Order",
+                                text: `New order from ${customerEmail}`,
+                            })
+                        } catch (err) {
+                            console.log(err)
+                            return NextResponse.json(
+                                { error: "Error sending email" },
+                                { status: 500 }
+                            )
+                        }
+                    }
+                }
             })
-            try {
-                await sgMail.send({
-                    from: process.env.EMAIL_FROM!,
-                    to: customerEmail,
-                    subject: "Body Craft System Ebook",
-                    text: "Thank you for your purchase! Here is your ebook!.",
-                    attachments: [
-                        {
-                            content: base64File,
-                            filename: "workout-plan-ebook.pdf",
-                            type: "application/pdf",
-                            disposition: "attachment",
-                        },
-                    ],
-                })
-                await sgMail.send({
-                    from: process.env.EMAIL_FROM!,
-                    to: "laupwing@gmail.com",
-                    subject: "New Order",
-                    text: `New order from ${customerEmail}`,
-                })
-            } catch (err) {
-                console.log(err)
-                return NextResponse.json(
-                    { error: "Error sending email" },
-                    { status: 500 }
-                )
-            }
         }
     }
     return NextResponse.json({ received: true })
