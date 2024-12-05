@@ -54,15 +54,15 @@ export async function POST(req: Request) {
             const lineItems = await stripe.checkout.sessions.listLineItems(
                 session.id
             )
-
+            console.log(lineItems)
             lineItems.data.forEach(async (item) => {
                 if (customerEmail) {
                     const priceId = item?.price?.id
-
+                    console.log(priceId)
                     if (priceId === process.env.STRIPE_PRICE_ID) {
                         console.log({
                             from: process.env.EMAIL_FROM,
-                            to: "laupwing@gmail.com",
+                            to: customerEmail,
                             subject: "Your Workout Plan Ebook",
                             text: "Thank you for your purchase! Here is your ebook.",
                             attachments: [
