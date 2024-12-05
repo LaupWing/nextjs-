@@ -1,59 +1,59 @@
 import { NextResponse } from "next/server"
+import nodemailer from "nodemailer"
+import fs from "fs/promises"
+
 import sgMail from "@sendgrid/mail"
 import path from "path"
-import fs from "fs/promises"
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!)
 
 export async function GET(req: Request) {
+    const transporter = nodemailer.createTransport({
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false, // Use TLS
+        auth: {
+            user: process.env.MAIL_USERNAME, // Your Microsoft email address
+            pass: process.env.MAIL_PASSWORD, // Your Microsoft email password or app password
+        },
+    })
+
     try {
-        console.log("Sending email")
-        console.log(process.env.SENDGRID_API_KEY!)
+        // Read the file and encode it to Base64
         const attachmentPath = path.join(
             process.cwd(),
             "assets",
             "workout-plan-ebook.pdf"
         )
-        const fileContent = await fs.readFile(attachmentPath)
-        const base64File = fileContent.toString("base64")
-        console.log({
-            from: process.env.EMAIL_FROM,
+        const fileBuffer = await fs.readFile(attachmentPath)
+        const base64File = fileBuffer.toString("base64")
+        // Send the email
+        await transporter.sendMail({
+            from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM_ADDRESS}>`,
             to: "laupwing@gmail.com",
-            subject: "Your Workout Plan Ebook",
-            text: "Thank you for your purchase! Here is your ebook.",
+            subject: "Test email",
+            text: "This is a test email text",
             attachments: [
                 {
-                    filename: "workout-plan-ebook.pdf",
+                    contentType: "application/pdf",
                     path: attachmentPath,
+                    filename: "workout-plan-ebook.pdf",
                 },
             ],
         })
-        const msg = {
-            to: "laupwing@gmail.com",
+        await sgMail.send({
             from: process.env.EMAIL_FROM!,
-            subject: "Your Workout Plan Ebook",
-            text: "Thank you for your purchase! Here is your ebook.",
-            attachments: [
-                {
-                    content: base64File,
-                    filename: "workout-plan-ebook.pdf",
-                    type: "application/pdf",
-                    disposition: "attachment",
-                },
-            ],
-        }
-
-        // Send the email using SendGrid
-        await sgMail.send(msg)
-    } catch (err) {
-        // @ts-ignore
-        console.log(err.response.body.errors)
-        console.error(err)
+            to: "laupwing@gmail.com",
+            subject: "item.description",
+            text: `New coaching order from test@test.com`,
+        })
+        // console.log("Email sent: %s", info.messageId)
+        return NextResponse.json({ received: true })
+    } catch (error) {
+        console.error("Error sending email:", error)
         return NextResponse.json(
             { error: "Error sending email" },
             { status: 500 }
         )
     }
-
-    return NextResponse.json({ received: true })
 }

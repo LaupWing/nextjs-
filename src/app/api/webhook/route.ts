@@ -3,6 +3,7 @@ import Stripe from "stripe"
 import sgMail from "@sendgrid/mail"
 import path from "path"
 import fs from "fs/promises"
+import nodemailer from "nodemailer"
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!)
 
@@ -15,6 +16,16 @@ export async function POST(req: Request) {
     const buf = await req.text()
     const sig = req.headers.get("stripe-signature")!
     let event: Stripe.Event
+    const transporter = nodemailer.createTransport({
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false, // Use TLS
+        auth: {
+            user: process.env.MAIL_USERNAME, // Your Microsoft email address
+            pass: process.env.MAIL_PASSWORD, // Your Microsoft email password or app password
+        },
+    })
+
     try {
         event = stripe.webhooks.constructEvent(
             buf,
@@ -63,6 +74,19 @@ export async function POST(req: Request) {
                         })
                         try {
                             console.log("Sending email")
+                            await transporter.sendMail({
+                                from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM_ADDRESS}>`,
+                                to: customerEmail,
+                                subject: "Test email",
+                                text: "This is a test email text",
+                                attachments: [
+                                    {
+                                        content: base64File,
+                                        filename: "workout-plan-ebook.pdf",
+                                        contentType: "application/pdf",
+                                    },
+                                ],
+                            })
                             await sgMail.send({
                                 from: process.env.EMAIL_FROM!,
                                 to: customerEmail,
