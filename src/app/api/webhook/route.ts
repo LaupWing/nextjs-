@@ -128,7 +128,6 @@ export async function POST(req: Request) {
                                         err
                                     )
                                 )
-                            console.log("Email sent by nodemailer")
 
                             sgMail
                                 .send({
@@ -148,8 +147,6 @@ export async function POST(req: Request) {
                                         err
                                     )
                                 )
-
-                            console.log("All email tasks completed")
                         } catch (err) {
                             console.log(err)
                             return NextResponse.json(
