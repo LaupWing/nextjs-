@@ -34,48 +34,42 @@ export async function POST(req: Request) {
             process.env.STRIPE_WEBHOOK_SECRET!
         )
     } catch (err) {
-        console.log(err)
+        console.error("Webhook verification failed", err)
         return NextResponse.json(
             { error: "Webhook signature verification failed" },
             { status: 400 }
         )
     }
+
     console.log("Received event", event.type)
+
     if (event.type === "checkout.session.completed") {
         const session = event.data.object as Stripe.Checkout.Session
         const customerEmail = session.customer_details?.email
+
         if (customerEmail) {
-            const attachmentPath = path.join(
-                process.cwd(),
-                "assets",
-                "workout-plan-ebook.pdf"
-            )
-            const fileContent = await fs.readFile(attachmentPath)
-            const base64File = fileContent.toString("base64")
-            const lineItems = await stripe.checkout.sessions.listLineItems(
-                session.id
-            )
-            lineItems.data.forEach(async (item) => {
-                if (customerEmail) {
+            try {
+                const attachmentPath = path.join(
+                    process.cwd(),
+                    "assets",
+                    "workout-plan-ebook.pdf"
+                )
+                const fileContent = await fs.readFile(attachmentPath)
+                const base64File = fileContent.toString("base64")
+
+                const lineItems = await stripe.checkout.sessions.listLineItems(
+                    session.id
+                )
+
+                // Process line items
+                for (const item of lineItems.data) {
                     const priceId = item?.price?.id
-                    console.log(priceId)
-                    // price_1QSNER00YeJKjPgjWJLH810O
+
                     if (priceId === process.env.STRIPE_PRICE_ID) {
-                        console.log({
-                            from: process.env.EMAIL_FROM,
-                            to: customerEmail,
-                            subject: "Your Workout Plan Ebook",
-                            text: "Thank you for your purchase! Here is your ebook.",
-                            attachments: [
-                                {
-                                    filename: "workout-plan-ebook.pdf",
-                                    path: attachmentPath,
-                                },
-                            ],
-                        })
-                        try {
-                            console.log("Sending email")
-                            console.log(customerEmail)
+                        console.log("Matched Price ID. Sending emails...")
+
+                        // Prepare email promises
+                        const emailPromises = [
                             sgMail
                                 .send({
                                     from: process.env.EMAIL_FROM!,
@@ -101,7 +95,7 @@ export async function POST(req: Request) {
                                         "SendGrid: Error sending email to customer",
                                         err
                                     )
-                                )
+                                ),
 
                             transporter
                                 .sendMail({
@@ -127,7 +121,7 @@ export async function POST(req: Request) {
                                         "Nodemailer: Error sending email to customer",
                                         err
                                     )
-                                )
+                                ),
 
                             sgMail
                                 .send({
@@ -146,18 +140,24 @@ export async function POST(req: Request) {
                                         "SendGrid: Error sending new order notification",
                                         err
                                     )
-                                )
-                        } catch (err) {
-                            console.log(err)
-                            return NextResponse.json(
-                                { error: "Error sending email" },
-                                { status: 500 }
-                            )
-                        }
+                                ),
+                        ]
+
+                        // Wait for all email promises to resolve
+                        await Promise.all(emailPromises)
+
+                        console.log("All emails sent successfully")
                     }
                 }
-            })
+            } catch (err) {
+                console.error("Error processing session", err)
+                return NextResponse.json(
+                    { error: "Error processing session" },
+                    { status: 500 }
+                )
+            }
         }
     }
+
     return NextResponse.json({ received: true })
 }
