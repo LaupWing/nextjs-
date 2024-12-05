@@ -16,6 +16,8 @@ export async function POST(req: Request) {
     const buf = await req.text()
     const sig = req.headers.get("stripe-signature")!
     let event: Stripe.Event
+    console.log("heh")
+
     const transporter = nodemailer.createTransport({
         host: "smtp.office365.com",
         port: 587,
