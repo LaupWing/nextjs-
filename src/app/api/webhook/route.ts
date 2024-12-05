@@ -74,6 +74,7 @@ export async function POST(req: Request) {
                         })
                         try {
                             console.log("Sending email")
+                            console.log(customerEmail)
                             await transporter.sendMail({
                                 from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM_ADDRESS}>`,
                                 to: customerEmail,
@@ -87,6 +88,7 @@ export async function POST(req: Request) {
                                     },
                                 ],
                             })
+                            console.log("Email sent by nodemailer")
                             await sgMail.send({
                                 from: process.env.EMAIL_FROM!,
                                 to: customerEmail,
