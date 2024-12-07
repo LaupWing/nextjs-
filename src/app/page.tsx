@@ -413,10 +413,10 @@ export default function SalesFunnel() {
                                         <p className="text-center text-5xl text-white items-center flex mx-auto relative justify-center">
                                             18,95
                                         </p>
-                                        <p className="uppercase text-gray-400 text-xs max-w-[50%] mt-2 mx-auto">
+                                        {/* <p className="uppercase text-gray-400 text-xs max-w-[50%] mt-2 mx-auto">
                                             This is limited time offer. The
                                             price will increase 1 dec.
-                                        </p>
+                                        </p> */}
                                     </div>
                                     <p className="text-base text-slate-200 mb-4 relative z-50">
                                         Create a custom workout plan just for
