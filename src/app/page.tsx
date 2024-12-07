@@ -458,13 +458,6 @@ export default function SalesFunnel() {
                                     </li>
                                     <li className="flex items-center relative">
                                         <IconRosetteDiscountCheckFilled className="text-yellow-400 mr-2 flex-shrink-0" />
-                                        <p>1 on 1 Call with Coach Loc</p>
-                                        <span className="absolute text-xs right-0 top-0 bg-yellow-400 text-slate-900 font-bold rounded px-2 py-0.5 transform rotate-12 translate-x-1/2 -translate-y-3/4">
-                                            Bonus
-                                        </span>
-                                    </li>
-                                    <li className="flex items-center relative">
-                                        <IconRosetteDiscountCheckFilled className="text-yellow-400 mr-2 flex-shrink-0" />
                                         <p>Custom Diet Plan Guide</p>
                                         <span className="absolute text-xs right-0 top-0 bg-yellow-400 text-slate-900 font-bold rounded px-2 py-0.5 transform rotate-12 translate-x-1/2 -translate-y-3/4">
                                             Bonus
