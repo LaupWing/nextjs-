@@ -411,10 +411,7 @@ export default function SalesFunnel() {
                                     </h1>
                                     <div className="my-6 flex flex-col">
                                         <p className="text-center text-5xl text-white items-center flex mx-auto relative justify-center">
-                                            <span className="text-2xl text-gray-400 line-through transform -translate-x-full absolute -left-2">
-                                                18,95
-                                            </span>
-                                            $7,95
+                                            18,95
                                         </p>
                                         <p className="uppercase text-gray-400 text-xs max-w-[50%] mt-2 mx-auto">
                                             This is limited time offer. The
